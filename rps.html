@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html;charset=utf-di8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+
+        var userChoice = prompt("Enter Rock, Paper, or Scissors: ");
+        userChoice.toLowerCase();
+
+        var playerWins = 0;
+        var compWins = 0;
+        var compRand = Math.random();
+
+        if (compRand < 0.333) {
+            var compChoice = "rock";
+        }
+        if (compRand < 0.666) {
+            var compChoice = "paper";
+        }
+        else {
+            var compChoice = "scissors";
+        }
+
+        function round(choice1, choice2) {
+            if (choice1 === choice2) {
+                console.log("The result is a tie.")
+            } 
+            if (choice1 === "rock") {
+                if (choice2 === "scissors") {
+                    console.log("Rock wins.")
+                    playerWins++;
+                }
+                if (choice2 === "paper") {
+                    console.log("Paper wins.")
+                    compWins++;
+                }
+            }
+            if (choice1 === "paper") {
+                if (choice2 === "scissors") {
+                    console.log("Scissors wins.")
+                    compWins++;
+
+                }
+                if (choice2 === "rock") {
+                    console.log("Paper wins.")
+                    playerWins++;
+                } 
+            }
+            else if (choice1 === "scissors") {
+                if (choice2 === "rock") {
+                    console.log("Rock wins.")
+                    compWins++;
+                }
+                if (choice2 === "paper") {
+                    console.log("Scissors wins.")
+                    playerWins++;
+                } 
+            }
+        }
+
+        for (i=1; i<6; i++) {
+            round(userChoice, compChoice);
+            console.log("The score is: " + playerWins + ":" + compWins);
+            var userChoice = prompt("Enter Rock, Paper, or Scissors: ");
+            var compRand = Math.random();
+        }
+        
+
+
+
+    </script>
+</body>
+    
+</html>

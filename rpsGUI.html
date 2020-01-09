@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html;charset=utf-di8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <link href="buttons.css" rel="stylesheet">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <div id ='wrapper'>
+        <button id="btn1">Rock</button>
+        <button id="btn2">Paper</button>
+        <button id="btn3">Scissors</button>
+    </div>
+
+    <h1>
+        
+    </h1>
+
+    <script>
+
+        // var userChoice = prompt("Enter Rock, Paper, or Scissors: ");
+        // userChoice.toLowerCase();
+
+        var playerWins=0;
+        var compWins=0;
+        var compChoice;
+        var compRand;
+        var userChoice;
+
+        //Determine random computer choice 
+        function randomize(randomValue){
+            var randomValue = Math.random();
+
+            if (randomValue < 0.333) {
+                var compChoice = "rock";
+            }
+            if (randomValue < 0.666) {
+                var compChoice = "paper";
+            }
+            else {
+                var compChoice = "scissors";
+            }
+        }
+
+
+
+        function round(choice1, choice2) {
+            if (choice1 === choice2) {
+                console.log("The result is a tie.")
+            } 
+            if (choice1 === "rock") {
+                if (choice2 === "scissors") {
+                    console.log("Rock wins.")
+                    playerWins++;
+                }
+                if (choice2 === "paper") {
+                    console.log("Paper wins.")
+                    compWins++;
+                }
+            }
+            if (choice1 === "paper") {
+                if (choice2 === "scissors") {
+                    console.log("Scissors wins.")
+                    compWins++;
+
+                }
+                if (choice2 === "rock") {
+                    console.log("Paper wins.")
+                    playerWins++;
+                } 
+            }
+            else if (choice1 === "scissors") {
+                if (choice2 === "rock") {
+                    console.log("Rock wins.")
+                    compWins++;
+                }
+                if (choice2 === "paper") {
+                    console.log("Scissors wins.")
+                    playerWins++;
+                } 
+            }
+        }
+
+        const btn1 = document.querySelector('#btn1');
+        btn1.addEventListener('click', () => {
+        userChoice = "rock";
+        round(userChoice, compChoice);
+        console.log("The score is: " + playerWins + ":" + compWins);
+        randomize(compRand);
+        })
+
+        const btn2 = document.querySelector('#btn2');
+        btn2.addEventListener('click', () => {
+        userChoice = "paper"; 
+        round(userChoice, compChoice);
+        console.log("The score is: " + playerWins + ":" + compWins);
+        randomize(compRand);
+        })
+
+        const btn3 = document.querySelector('#btn3');
+        btn3.addEventListener('click', () => {
+        userChoice = "scissors"; 
+        round(userChoice, compChoice);
+        console.log("The score is: " + playerWins + ":" + compWins);
+        randomize(compRand);
+        })
+
+        // for (i=1; i<6; i++) {
+        //     round(userChoice, compChoice);
+        //     console.log("The score is: " + playerWins + ":" + compWins);
+        //     var userChoice = prompt("Enter Rock, Paper, or Scissors: ");
+        //     var compRand = Math.random();
+        // }
+        
+
+
+
+    </script>
+</body>
+    
+</html>
